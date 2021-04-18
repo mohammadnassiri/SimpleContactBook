@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-jh0&-%wr#r$!62&hk@7()g-0d4oxc+_+0i)h^ze1u$l4ki@yxh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -142,9 +142,8 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 30
 }
 
-CORS_ORIGIN_WHITELIST = [
-     'http://localhost:3000'
-]
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 
 JWT_AUTH = {
     'JWT_RESPONSE_PAYLOAD_HANDLER': 'contact_book.utils.my_jwt_response_handler',

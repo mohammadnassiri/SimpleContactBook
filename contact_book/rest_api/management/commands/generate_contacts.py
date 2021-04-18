@@ -32,6 +32,6 @@ class Command(BaseCommand):
                 type=randrange(3)
             ))
 
-            Contact.objects.bulk_create(contacts)
+        Contact.objects.bulk_create(contacts)
 
         self.stdout.write(self.style.SUCCESS(f"Successfully {options['count'][0]} contacts have been created."))

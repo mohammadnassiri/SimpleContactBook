@@ -28,6 +28,7 @@ function App() {
   }
 
   const editBook = (contact) => {
+    console.log(contact);
     for (var i in book) {
       if (book[i].id === contact.id) {
           book[i].name = contact.name;
@@ -37,7 +38,6 @@ function App() {
          break;
       }
     }
-    //setBook(book);
   }
 
   const editContact = (contact) => {
@@ -46,6 +46,7 @@ function App() {
   }
 
   useEffect(() => {
+    
     const fetchData = async () => {
       await axios.get('/contacts/', {
         headers: {
@@ -53,15 +54,17 @@ function App() {
         }
       })
       .then(response => {
-        console.log(response.data.results);
+        console.log("Books: " + response.data.results);
         setBook(response.data.results);
       })
       .catch(error => {
-        console.log(error.response);
+        console.log("Books erre: " + error.response);
       });
     }
-    fetchData();
-    }, []
+    if(login){
+      fetchData();
+    }
+    }, [login]
   );
 
 

@@ -16,7 +16,6 @@ export function User(props) {
           }
         })
         .then(response => {
-          console.log(response.data.username);
           props.changeLogin(true);
           setUsername(response.data.username);
         })
@@ -85,7 +84,7 @@ export function User(props) {
             setError(false);
         })
         .catch(error => {
-            console.log(error.message);
+            console.log(error);
             setError(true);
             setErrorMessage(error.response.data);
         });

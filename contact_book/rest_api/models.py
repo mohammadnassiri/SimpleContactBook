@@ -22,6 +22,5 @@ class Contact(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     email = models.EmailField(blank=True)
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Must be like: '+4999999999999'.")
-    phone = models.CharField(max_length=15)
+    phone = models.CharField(max_length=25)
     type = models.IntegerField(default=0, choices=CONTACT_TYPE)

@@ -6,7 +6,7 @@ export function Form(props) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
-    const [type, setType] = useState('0');
+    const [type, setType] = useState(0);
     const [error, setError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [editId, setEditID] = useState(null);
@@ -16,28 +16,18 @@ export function Form(props) {
         setName('');
         setEmail('');
         setPhone('');
-        setType('0');
+        setType(0);
         setEditID('');
     }
     
     useEffect(()=>{
         if(props.editForm){
             const contact = props.selectedContact;
+            console.log(contact);
             setName(contact.name);
             setEmail(contact.email);
             setPhone(contact.phone);
-            let type = '0';
-            switch(contact.type) {
-                case 'Mobile':
-                  type='1'
-                  break;
-                case 'Officce':
-                  type='2'
-                  break;
-                default:
-                  type='0'
-              }
-            setType(type);
+            setType(contact.type);
             setEditID(contact.id);
         }
     }, [props.selectedContact, props.editForm]);
@@ -201,8 +191,8 @@ export function Form(props) {
                     <div className="form-group">
                         <div className="form-check form-check-inline">
                             <input 
-                            checked={type === '0' ? 'checked' : ''}
-                            onChange={e => setType(e.target.value)} 
+                            checked={type === 0 ? 'checked' : ''}
+                            onChange={e => setType(parseInt(e.target.value))} 
                             className="form-check-input" 
                             type="radio" 
                             name="home" 
@@ -212,8 +202,8 @@ export function Form(props) {
                             </div>
                             <div className="form-check form-check-inline">
                             <input 
-                            checked={type === '1' ? 'checked' : ''}
-                            onChange={e => setType(e.target.value)} 
+                            checked={type === 1 ? 'checked' : ''}
+                            onChange={e => setType(parseInt(e.target.value))} 
                             className="form-check-input" 
                             type="radio" 
                             name="mobile" 
@@ -223,8 +213,8 @@ export function Form(props) {
                             </div>
                             <div className="form-check form-check-inline">
                             <input 
-                            checked={type === '2' ? 'checked' : ''}
-                            onChange={e => setType(e.target.value)} 
+                            checked={type === 2 ? 'checked' : ''}
+                            onChange={e => setType(parseInt(e.target.value))} 
                             className="form-check-input" 
                             type="radio" 
                             name="office" 
