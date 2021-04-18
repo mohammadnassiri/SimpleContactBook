@@ -50,6 +50,8 @@ npm install
 npm start
 ```
 
+**Notice:** Please delete db.sqlite3 if you have used docker to start the project and want to try manual setup.
+
 ## Use
 Now you can go to http://localhost or http://127.0.0.1 in your browser to see the project.  
 Just enter a username and password to login or register(if username not exists).  
