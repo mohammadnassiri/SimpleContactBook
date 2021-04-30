@@ -1,21 +1,7 @@
-# Contacts Book Based on React and Djago
+# Contacts Book Based on React and Django
 This is a simple contacts book based on django's restframework and React. It uses CRUD to make connection between backend and frontend.
 
 ![sample image](https://github.com/mohammadnassiri/SimpleContactBook/blob/master/sample_image.png)
-
-## Installation
-For backed:
-```
-cd contact_book
-pip install -r requirements.txt
-```
-
-For frontend:
-```
-cd contact_book_ui
-npm install
-```
-
 
 ## Setup
 You can simply run the project with docker:
@@ -39,6 +25,7 @@ If you don't like docker, first change proxy in package.json and CORS_ORIGIN_WHI
 Then please use below commands to run the project. Please be sure to run django under 8000 and react under 3000 ports.
 ```
 cd contact_book
+pip install -r requirements.txt
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py generate_contacts 10
